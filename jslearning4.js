@@ -77,6 +77,7 @@ alert(`${readUser.name} with a birthday ${readUser.days.birthday}`);
 let numberArr = [1, 2, 5, 6, 7, 9, 10, 4, 4, 3];
 //In this case it breaks down the array into individual values, as needed when passing parameters
 sum1 = spreadOperator(...numberArr);
+[fNumber, sNumber, theRest] = [numberArr[0], numberArr[1], ...numberArr];
 alert(sum1);
 
 //This is called a polyfill
@@ -108,7 +109,4 @@ let double = multiply.bind(null, 2);
 let triple = multiply.bind(null, 3);
 
 alert(`${double(6)} and ${triple(6)}`);
-
-
-
 
