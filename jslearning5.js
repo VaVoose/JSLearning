@@ -41,6 +41,7 @@ let person = {
         return `${this.firstname} ${this.lastname}`;
     }
 };
+
 //user2 prototypically inherits from person
 //has name values as well as the full name getter and setters
 let user2 = Object.create(person, {
