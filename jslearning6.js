@@ -1,6 +1,7 @@
 // The begining of classes
 // Classes are considered "functions"
 // properties are 'object specific' while class functions are saved in the prototype
+//Static methods and properties are assigned to the class itself not the instatiation
 
 'use strict';
 
