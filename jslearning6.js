@@ -122,6 +122,10 @@ a1.stop();
 let r1 = new Rabbit("Rabbito", 4);
 r1.stop();
 
+//Check to see if r1 is in fact a rabbit or Animal
+alert(r1 instanceof Rabbit);
+alert(r1 instanceof Animal);
+
 alert(r1.earLength);
 
 let newArticle = Article.createTodaysArticle();
