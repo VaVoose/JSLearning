@@ -62,6 +62,61 @@ let chainPromise = new Promise(function(resolve, reject){
     return result*2;
 });
 
+
+//All 3 of these promises are running at the same time
+let promise1 = new Promise((resolve, reject) => {
+    resolve("Promise 1 resolved");
+});
+
+let promise2 = new Promise((resolve, reject) => {
+    resolve("Promise 2 resolved");
+});
+
+let promise3 = new Promise((resolve, reject) => {
+    resolve("Promise 3 resoled");
+});
+
+//This promise.all is called when all 3 promises are finished, the result is an array of all the resolves
+Promise.all([promise1, promise2, promise3]).then((result) => {
+    alert(`All promises resolved ${result}`);
+}).catch((error) => {
+    alert(`Something failed`);
+})
+
+//These are async function, they can be done with promises but this is more clean and easy
+function makeRequest(location){
+    return new Promise((resolve, reject) => {
+        alert(`Making a request to this ${location}`);
+        if (location == "Google") {
+            resolve("Google says hi");
+        }
+        else {
+            reject("You can only request from Google");
+        }
+    })
+}
+
+function processRequest(response){
+    return new Promise((resolve, reject) => {
+        alert("Processing response");
+        resolve(`Extra information: ${response}`);
+    })
+}
+
+async function doWork() {
+    try{
+        const response = await makeRequest("Google");
+        alert("Response Recieved");
+        const processedResponse = await processRequest(response);
+        alert(processedResponse);
+    }
+    catch(err){
+        alert(err);
+    }
+}
+
+doWork();
+
 /* Something useful to use with chained promises
 loadScript("/article/promise-chaining/one.js")
   .then(script => loadScript("/article/promise-chaining/two.js"))
