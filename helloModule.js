@@ -1,3 +1,3 @@
 import {user} from "./userModule.js";
 
-document.body.innerHTML = user;
+document.querySelector("#testButton").innerHTML = user;

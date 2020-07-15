@@ -2,15 +2,22 @@
 <HTML>
     <!-- 
         This is the beggining of modules and imports and exports
-        This html will be used for the start of these 
+        This html will be used for the start of these
+        when a script type is module, the script waits for the page to load before executing
     -->
 <body>
-    
-
-
-    <script type="module" src="helloModule.js">
-
+    <!-- This is an example of a dynamic import-->
+    <script>
+        async function load(){
+            let say = await import('./dynamicModule.js');
+            say.hi();
+            say.bye();
+        }
     </script>
+    <script type="module" src="helloModule.js"> </script>
+    <button id="testButton" onclick="load()"></button>
+    
+    
 </body>
 
 </HTML>
