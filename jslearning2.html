@@ -5,19 +5,29 @@
         This html will be used for the start of these
         when a script type is module, the script waits for the page to load before executing
     -->
-<body>
-    <!-- This is an example of a dynamic import-->
-    <script>
-        async function load(){
-            let say = await import('./dynamicModule.js');
-            say.hi();
-            say.bye();
-        }
-    </script>
-    <script type="module" src="helloModule.js"> </script>
-    <button id="testButton" onclick="load()"></button>
-    
-    
-</body>
+    <head>
+        <!--Some inline css-->
+        <style>
+            body {
+                margin: 5px;
+                padding-top: 10px;
+                padding-left: 10px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <!-- This is an example of a dynamic import-->
+        <script>
+            async function load(){
+                let say = await import('./dynamicModule.js');
+                say.hi();
+                say.bye();
+            }
+        </script>
+        <script type="module" src="helloModule.js"> </script>
+        <button id="testButton" onclick="load()"></button>
+        
+    </body>
 
 </HTML>
