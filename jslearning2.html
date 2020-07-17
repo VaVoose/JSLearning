@@ -14,8 +14,12 @@
                 padding-left: 10px;
             }
 
+            #mouseTracker {
+                padding: 100px;
+            }
         </style>
     </head>
+
     <body>
         <!-- This is an example of a dynamic import-->
         <script>
@@ -27,7 +31,22 @@
         </script>
         <script type="module" src="helloModule.js"> </script>
         <button id="testButton" onclick="load()"></button>
-        
+
+        <!--Event Delegation-->
+        <script type="module" src="menuModule.js"></script>
+        <div id="menu">
+            <br>
+            <button data-action="save">SAVE</button>
+            <button data-action="load">LOAD</button>
+            <button data-action="clear">CLEAR</button>
+        </div>
+
+        <!--Shows the difference between client and page mouse position, they differ based on scrolling-->
+        <div>
+            <br>
+            <input id="mouseTracker" input onmousemove="this.value=event.clientX+':'+event.clientY+'-'+event.pageX+':'+event.pageY+'_'+window.pageYOffset" value="Mouse over me">
+        </div>
+
     </body>
 
 </HTML>
